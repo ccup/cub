@@ -1,0 +1,8 @@
+build/
+deps/
+.vscode/
+.settings/
+.idea/*
+.project
+.cproject
+.DS_Store
