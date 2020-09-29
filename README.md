@@ -28,16 +28,14 @@ git clone git@github.com:ccup/cub.git
 
 ~~~ bash
 cd cub
-mkdir build
-cd build
-cmake ..
-make
+./ccup.sh -ub
 ~~~
 
 ### Install CUB
 
 ~~~ bash
-sudo make install
+cd cub
+./ccup.sh -i
 ~~~
 
 You can also install CUB manually, just copy "cub/include" and "cub/build/src/libcub.a" to your special installation path.

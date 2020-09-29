@@ -40,6 +40,13 @@ make
 
 CUB提供了自动安装，编译成功后在build目录下执行`sudo make install`，这样CUB的头文件和库，将会自动安装到当前系统默认的安装路径下，对于linux会在 “/usr/local/include” 以及 “/usr/local/lib” 目录。
 
+按以下脚本会自动执行构建并安装cub：
+
+~~~bash
+cd cub
+./ccup.sh -ubi
+~~~
+
 CUB中的一些组件使用了C\++11特性（每个组件的介绍中会专门说明），如果你的项目使用了这些组件，请确保你的编译器支持C\++11并且编译选项开启了c\++11。最后，使用CUB的sched组件还需要在你的链接库中增加pthread。
 
 可以尝试运行CUB的测试，看看CUB在你的系统下是否存在错误。
