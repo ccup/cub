@@ -66,7 +66,7 @@ private:
             return &getValue(id);
         }
         
-        DBG_LOG("ThreadData: id(%d) overflow!", id);
+        LOG_DEBUG("ThreadData: id(%d) overflow!", id);
         return 0;
     }
 

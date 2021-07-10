@@ -1,3 +1,5 @@
+set(CMAKE_CXX_STANDARD 17)
+
 file(GLOB_RECURSE SOURCES
     "*.c" "*.C" "*.cc" "*.CC" "*.cpp" "*.CPP" "*.c++"
 )

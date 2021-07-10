@@ -40,7 +40,7 @@ namespace
             {
                 if(alloc_blocks == 0) 
                 {
-                    throw std::exception();
+                    return;
                 }
 
                 alloc_blocks--;

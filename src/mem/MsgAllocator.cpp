@@ -107,7 +107,7 @@ void* MsgAllocator::alloc(size_t size)
     TRY_BLOCK(256);
     TRY_BLOCK(512);
 
-    DBG_LOG("The specified size is too big for allocator, size = %d!", size);
+    LOG_DEBUG("The specified size is too big for allocator, size = %d!", size);
 
     return 0;
 }
@@ -122,7 +122,7 @@ void  MsgAllocator::free(void* p)
     TRY_FREE(256);
     TRY_FREE(512);
 
-    DBG_LOG("The freed pointer(%x) is not in any MsgAllocator!", p);
+    LOG_DEBUG("The freed pointer(%x) is not in any MsgAllocator!", p);
 
     return;
 }

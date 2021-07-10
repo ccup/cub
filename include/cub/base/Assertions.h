@@ -16,7 +16,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 #define __CUB_WARNING_NOT_TRUE(exp)             \
-  WARN_LOG("assertion failed: "#exp)
+  LOG_WARN("assertion failed: %s", #exp)
 
 
 #define __CUB_EXPECT_TRUE(exp, action)      \
@@ -51,7 +51,7 @@ do {                                        \
 
 ///////////////////////////////////////////////////////////////
 #define  __CUB_NOT_TRUE(exp)                    \
-    ERR_LOG("assertion failed: "#exp)
+    LOG_ERROR("assertion failed: %s", #exp)
 
 #define __CUB_ASSERT_TRUE(exp, action)      \
 do {                                        \
@@ -103,7 +103,7 @@ do {                                        \
 
 //////////////////////////////////////////////////////////////////////////
 #define __CUB_WARNING_CALL(call, status)        \
-  WARN_LOG(#call" = [%X]", status)
+  LOG_WARN(#call" = [%X]", status)
 
 #define __CUB_EXPECT_SUCC_CALL(call, action)\
 do {                                            \
@@ -132,7 +132,7 @@ do {                                            \
 
 /////////////////////////////////////////////////////////////////////
 #define __CUB_FAIL_CALL(call, status)           \
-  ERR_LOG(#call" = [%X]", status)
+  LOG_ERROR(#call" = [%X]", status)
 
 #define __CUB_ASSERT_SUCC_CALL(call, action)    \
 do {                                            \
@@ -199,7 +199,7 @@ do {                                                 \
 
 //////////////////////////////////////////////////////////////////////////
 #define __CUB_NIL_PTR(ptr)                               \
-    ERR_LOG("assertion failed: unexpected null ptr: "#ptr)
+    LOG_ERROR("assertion failed: unexpected null ptr: "#ptr)
 
 #define __CUB_ASSERT_VALID_PTR(ptr, action)          \
 do {                                                 \
