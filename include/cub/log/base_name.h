@@ -15,7 +15,7 @@ namespace detail {
 }
 
 template<std::size_t Len>
-constexpr const char* base_name_of(const char(&str)[Len])
+constexpr const char* log_basename(const char(&str)[Len])
 {
     return detail::baseNameImpl(str, Len-1);
 }
