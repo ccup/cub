@@ -38,6 +38,8 @@ namespace detail {
 	}
 }
 
+CUB_NS_END
+
 #define LOG_PRINT(level, fmt, ...) 						\
 do {													\
 	if (::CUB_NS::level_enabled(level)) {			    \
@@ -45,13 +47,11 @@ do {													\
 	}										            \
 } while(0)
 
-#define LOG_FATAL(fmt, ...) LOG_PRINT(LogLevel::FATAL, fmt, ##__VA_ARGS__)
-#define LOG_ERROR(fmt, ...) LOG_PRINT(LogLevel::ERROR, fmt, ##__VA_ARGS__)
-#define LOG_WARN(fmt, ...)  LOG_PRINT(LogLevel::WARN,  fmt, ##__VA_ARGS__)
-#define LOG_SUCC(fmt, ...)  LOG_PRINT(LogLevel::SUCC,  fmt, ##__VA_ARGS__)
-#define LOG_INFO(fmt, ...)  LOG_PRINT(LogLevel::INFO,  fmt, ##__VA_ARGS__)
-#define LOG_DEBUG(fmt, ...) LOG_PRINT(LogLevel::DEBUG, fmt, ##__VA_ARGS__)
-
-CUB_NS_END
+#define LOG_FATAL(fmt, ...) LOG_PRINT(::CUB_NS::LogLevel::FATAL, fmt, ##__VA_ARGS__)
+#define LOG_ERROR(fmt, ...) LOG_PRINT(::CUB_NS::LogLevel::ERROR, fmt, ##__VA_ARGS__)
+#define LOG_WARN(fmt, ...)  LOG_PRINT(::CUB_NS::LogLevel::WARN,  fmt, ##__VA_ARGS__)
+#define LOG_SUCC(fmt, ...)  LOG_PRINT(::CUB_NS::LogLevel::SUCC,  fmt, ##__VA_ARGS__)
+#define LOG_INFO(fmt, ...)  LOG_PRINT(::CUB_NS::LogLevel::INFO,  fmt, ##__VA_ARGS__)
+#define LOG_DEBUG(fmt, ...) LOG_PRINT(::CUB_NS::LogLevel::DEBUG, fmt, ##__VA_ARGS__)
 
 #endif
