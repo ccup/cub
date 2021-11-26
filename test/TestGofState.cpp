@@ -262,6 +262,7 @@ namespace
 
     __DEF_GOF_STATE(Robot, Closed)
     {
+        IMPL_SINGLETON(Closed);
     private:
         OVERRIDE(void open(Robot& THIS))
         {
@@ -288,6 +289,7 @@ namespace
 
     __DEF_GOF_STATE(Robot, Opened)
     {
+        IMPL_SINGLETON(Opened);
     private:
         OVERRIDE(void play(Robot& THIS))
         {
@@ -315,6 +317,7 @@ namespace
 
     __DEF_GOF_STATE(Robot, WaitCharged)
     {
+        IMPL_SINGLETON(WaitCharged);
     private:
         OVERRIDE(void open(Robot& THIS))
         {

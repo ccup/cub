@@ -6,22 +6,42 @@
 
 CUB_NS_BEGIN
 
+// template<typename T>
+// struct Singleton
+// {
+//     static T& getInstance()
+//     {
+//         static T instance;
+//         return instance;
+//     }
+
+//     DISALLOW_COPY_AND_ASSIGN(Singleton)
+
+// protected:
+//     Singleton() {}
+// };
+
 template<typename T>
-struct Singleton
-{
-    static T& getInstance()
+struct Singleton{
+    static T& getInstance() noexcept(std::is_nothrow_constructible<T>::value)
     {
-        static T instance;
+        static T instance{token()};
         return instance;
     }
 
-    DISALLOW_COPY_AND_ASSIGN(Singleton)
+    virtual ~Singleton() =default;
+    DISALLOW_COPY_AND_ASSIGN(Singleton);
 
 protected:
-    Singleton() {}
+    struct token{};
+    Singleton() noexcept=default;
 };
 
 #define DEF_SINGLETON(object) struct object : ::CUB_NS::Singleton<object>
+
+#define IMPL_SINGLETON(object)              \
+object(token){};                            \
+DISALLOW_COPY_AND_ASSIGN(object)
 
 CUB_NS_END
 
