@@ -9,7 +9,7 @@ DISALLOW_COPY(ClassName)
 ClassName& operator=(const ClassName&) = delete;
 
 #define DISALLOW_COPY(ClassName)               \
-ClassName(const ClassName&) = delete;          \
+ClassName(const ClassName&) = delete;
 
 #endif
 

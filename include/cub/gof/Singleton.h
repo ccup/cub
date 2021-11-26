@@ -3,23 +3,9 @@
 
 #include <cub/cub.h>
 #include <cub/base/Uncloneable.h>
+#include <type_traits>
 
 CUB_NS_BEGIN
-
-// template<typename T>
-// struct Singleton
-// {
-//     static T& getInstance()
-//     {
-//         static T instance;
-//         return instance;
-//     }
-
-//     DISALLOW_COPY_AND_ASSIGN(Singleton)
-
-// protected:
-//     Singleton() {}
-// };
 
 template<typename T>
 struct Singleton{
@@ -37,11 +23,11 @@ protected:
     Singleton() noexcept=default;
 };
 
-#define DEF_SINGLETON(object) struct object : ::CUB_NS::Singleton<object>
+#define DEF_SINGLETON(ClassName) struct ClassName : ::CUB_NS::Singleton<ClassName>
 
-#define IMPL_SINGLETON(object)              \
-object(token){};                            \
-DISALLOW_COPY_AND_ASSIGN(object)
+#define IMPL_SINGLETON(ClassName)              \
+ClassName(token){};                            \
+DISALLOW_COPY_AND_ASSIGN(ClassName)
 
 CUB_NS_END
 
