@@ -5,7 +5,7 @@ CUB_NS_BEGIN
 
 Executor::Executor(size_t threadNum) : stop(false)
 {
-    FOR_EACH_0(i, threadNum)
+    for(size_t i = 0; i < threadNum; i++)
     {
         workers.emplace_back([this]{ threadRun(); });
     }
@@ -27,7 +27,7 @@ Executor::~Executor()
 
 void Executor::threadRun()
 {
-    ALWAYS_LOOP()
+    while(true)
     {
         std::function<void()> task;
 
