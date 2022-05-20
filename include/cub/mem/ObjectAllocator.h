@@ -124,12 +124,12 @@ private:
 
 //////////////////////////////////////////////////////////////////////////
 #define DECL_OPERATOR_NEW()              \
-void* operator new(size_t) throw();      \
+void* operator new(size_t) noexcept;     \
 void operator delete(void* p)
 
 //////////////////////////////////////////////////////////////////////////
 #define DEF_OPERATOR_NEW(p_type, allocator)                     \
-    void* p_type::operator new(size_t) throw()                  \
+    void* p_type::operator new(size_t) noexcept                 \
     {                                                           \
        return allocator.alloc();                                \
     }                                                           \
@@ -141,7 +141,7 @@ void operator delete(void* p)
 //////////////////////////////////////////////////////////////////////////
 #define DEF_GENERIC_OPERATOR_NEW(p_type, allocator)             \
     template <typename T>                                       \
-    void* p_type<T>::operator new(size_t) throw()               \
+    void* p_type<T>::operator new(size_t) noexcept              \
     {                                                           \
        return allocator.alloc();                                \
     }                                                           \
