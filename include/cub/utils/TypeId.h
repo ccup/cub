@@ -7,17 +7,17 @@ CUB_NS_BEGIN
 
 template <typename T>
 struct TypeIdGenerator {
-  constexpr static char dummy_ = 0;
+  constexpr static char ID = 0;
 };
 
 template <typename T>
-constexpr char TypeIdGenerator<T>::dummy_;
+constexpr char TypeIdGenerator<T>::ID;
 
 using TypeId = const void*;
 
 template <typename T>
 constexpr inline TypeId TypeIdOf() {
-    return &TypeIdGenerator<T>::dummy_;
+    return &TypeIdGenerator<T>::ID;
 }
 
 CUB_NS_END
