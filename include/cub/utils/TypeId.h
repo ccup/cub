@@ -10,8 +10,8 @@ struct TypeIdGenerator {
   constexpr static char ID = 0;
 };
 
-template <typename T>
-constexpr char TypeIdGenerator<T>::ID;
+// should be removed in C++17
+template <typename T> constexpr char TypeIdGenerator<T>::ID;
 
 using TypeId = const void*;
 
