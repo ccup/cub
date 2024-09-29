@@ -18,7 +18,7 @@ struct Placement
 
     void* alloc()
     {
-        return (void*)&u;
+        return (void*)&mem;
     }
 
     void free()
@@ -38,12 +38,12 @@ struct Placement
 
     T* getObject() const
     {
-        return (T*)&u;
+        return (T*)&mem;
     }
 
     T& getRef() const
     {
-        return (T&)u;
+        return (T&)mem;
     }
 
     void destroy()
@@ -59,19 +59,7 @@ private:
     }
 
 private:
-    union
-    {
-        char   c;
-        short  s;
-        int    i;
-        long   l;
-        long long   ll;
-        float  f;
-        double d;
-        void*  p;
-
-        char buff[sizeof(T)];
-    }u;
+    std::aligned_storage_t<sizeof(T), alignof(T)> mem;
 };
 
 template <typename T>
